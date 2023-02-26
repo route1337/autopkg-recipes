@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Deploy Cloudflare WARP package to Jamf</string>
+	<key>Identifier</key>
+	<string>com.github.route1337.autopkg-recipes.jamf-upload.CloudflareWARP</string>
+	<key>Input</key>
+	<dict>
+		<key>CATEGORY</key>
+		<string>Security</string>
+		<key>NAME</key>
+		<string>CloudflareWARP</string>
+		<key>INFO</key>
+        <string>Cloudflare WARP client</string>
+        <key>PRIORITY</key>
+        <string>1</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.4.1</string>
+	<key>ParentRecipe</key>
+	<string>com.github.route1337.autopkg-recipes.pkg.CloudflareWARP</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_category</key>
+				<string>%CATEGORY%</string>
+				<key>pkg_name</key>
+                <string>%NAME%</string>
+                <key>pkg_info</key>
+                <string>%INFO%</string>
+                <key>pkg_priority</key>
+                <string>%PRIORITY%</string>
+			</dict>
+			<key>Processor</key>
+			<string>com.github.grahampugh.jamf-upload.processors/JamfPackageUploader</string>
+		</dict>
+	</array>
+</dict>
+</plist>
